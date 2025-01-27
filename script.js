@@ -1,23 +1,16 @@
-// Get the theme switch button and HTML element for the theme
-const themeSwitcher = document.getElementById('themeSwitcher');
-const htmlElement = document.documentElement;
+const socialIcons = document.querySelectorAll('.social-icons');
 
-// Check if there's a saved theme in localStorage
-const savedTheme = localStorage.getItem('theme');
+socialIcons.forEach(icon => {
+  const originalSrc = icon.src;
 
-// Apply the saved theme if it exists
-if (savedTheme) {
-    htmlElement.setAttribute('data-theme', savedTheme);
-}
+  icon.addEventListener('mouseover', function() {
+    const srcArray = originalSrc.split('.');
+    const extension = srcArray.pop();
+    const baseName = srcArray.join('.');
+    icon.src = `${baseName}_1.${extension}`;
+  });
 
-// Add event listener to toggle themes
-themeSwitcher.addEventListener('click', () => {
-    let currentTheme = htmlElement.getAttribute('data-theme');
-    if (currentTheme === 'white') {
-        htmlElement.setAttribute('data-theme', 'black');
-        localStorage.setItem('theme', 'black'); // Save the theme
-    } else {
-        htmlElement.setAttribute('data-theme', 'white');
-        localStorage.setItem('theme', 'white'); // Save the theme
-    }
+  icon.addEventListener('mouseout', function() {
+    icon.src = originalSrc;
+  });
 });

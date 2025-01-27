@@ -33,7 +33,7 @@
     justify-content: center;
 }
 .secondary-text small{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     font-size: 20px;
     font-weight: 400;
 }
@@ -95,7 +95,7 @@ footer{
     }
     
     footer p{
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
     
     
@@ -105,7 +105,7 @@ footer{
     }
     
     footer p a{
-        color: rgb(163, 53, 53);
+        color: white;
         text-decoration: underline;
     }
     
